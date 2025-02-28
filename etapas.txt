@@ -1,0 +1,3 @@
+27/08 e 28/08 -  Preparei meu ambiente, subi o airflow utlizando o astro e criei o docker compose para subir um postgre separado.
+poderia utilizar o postgre que ja vem no airflow? sim, mas por organização melhor utilizar separado
+dificuldades: colocar os dois containers na mesma rede, nunca tinha feito. testar comunicação entre eles.
