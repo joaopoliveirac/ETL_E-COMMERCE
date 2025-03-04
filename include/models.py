@@ -1,24 +1,30 @@
 #criando as tabelas
 from sqlalchemy import Column, String, Float, Integer, ForeignKey, DateTime
 from sqlalchemy.sql import func
+from sqlalchemy.orm import relationship
 from db import Base
 from datetime import datetime
 
 class Produto(Base):
     __tablename__ = 'produtos'
-    id = Column(Integer)
+    id = Column(Integer, primary_key = True)
     titulo = Column(String)
     preco = Column(Float)
     descricao = Column(String)
     categoria = Column(String)
     imagem = Column(String)
 
+    pedidos = relationship("ProdutoPedido", back_populates="produto")
+
 class Cliente(Base):
     __tablename__ = 'clientes'
-    id = Column(Integer)
+    id = Column(Integer, primary_key = True)
     nome = Column(String)
     email = Column(String)
     telefone = Column(String)
+
+    enderecos = relationship("Endereco", back_populates="cliente")
+    pedidos = relationship("Pedido", back_populates="cliente")
 
 class Endereco(Base):
     __tablename__ = 'endereço_clientes'
@@ -29,18 +35,26 @@ class Endereco(Base):
     numero = Column(Integer)
     cep = Column(String)
 
+    cliente = relationship("Cliente", back_populates="enderecos")
+
 class Pedido(Base):
     __tablename__ = 'pedidos'
-    id = Column(Integer)
-    cliente_id = Column(Integer) #chave estrangeira, verificar como colocar
+    id = Column(Integer, primary_key = True)
+    cliente_id = Column(Integer, ForeignKey('clientes.id')) #chave estrangeira, verificar como colocar
     data = Column(DateTime, default = datetime.utcnow)
+
+    cliente = relationship("Cliente", back_populates="pedidos")
+    produtos = relationship("ProdutoPedido", back_populates="pedido")
 
 class ProdutoPedido(Base):
     __tablename__ = 'produtos_pedidos'
     id = Column(Integer, primary_key = True)
-    pedido_id = Column(Integer, ForeignKey)
-    produto_id = Column(Integer, ForeignKey)
+    pedido_id = Column(Integer, ForeignKey('pedidos.id'))
+    produto_id = Column(Integer, ForeignKey('produtos.id'))
     quantidade = Column(Integer)
+
+    pedido = relationship("Pedido", back_populates="produtos")
+    produto = relationship("Produto", back_populates="pedidos")
 
 
     
