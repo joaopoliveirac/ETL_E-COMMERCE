@@ -27,7 +27,7 @@ class Cliente(Base):
     pedidos = relationship("Pedido", back_populates="cliente")
 
 class Endereco(Base):
-    __tablename__ = 'endereço_clientes'
+    __tablename__ = 'endereco_clientes'
     id = Column(Integer, primary_key = True)
     cliente_id = Column(Integer, ForeignKey('clientes.id') )
     cidade = Column(String)
