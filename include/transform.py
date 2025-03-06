@@ -21,17 +21,14 @@ def transform_cliente(dados_brutos_clientes):
     clientes = []
 
     for cliente in dados_brutos_clientes:
-        clientes = []
-
-        for cliente in dados_brutos_clientes:
-            cliente_transformado = {'id': cliente['id'],
-                                    'nome': cliente['name']['firstname'] + ' ' + cliente['name']['lastname'],
-                                    'email': cliente['email'],
-                                    'telefone': cliente['phone']}
+        cliente_transformado = {'id': cliente['id'],
+                                'nome': cliente['name']['firstname'] + ' ' + cliente['name']['lastname'],
+                                'email': cliente['email'],
+                                'telefone': cliente['phone']}
             
-            clientes.append(cliente_transformado)
-        df = pd.DataFrame(clientes)
-        df.to_csv('CLIENTES.csv', index=False)
+        clientes.append(cliente_transformado)
+    df = pd.DataFrame(clientes)
+    df.to_csv('CLIENTES.csv', index=False)
 
 def transform_endereco(dados_brutos_clientes):
     endereco_cliente = []
@@ -44,7 +41,7 @@ def transform_endereco(dados_brutos_clientes):
                                  'cep': cliente['address']['zipcode']}
         
         endereco_cliente.append(endereco_transformado)
-    df = pd.DataFrame(endereco_transformado)
+    df = pd.DataFrame(endereco_cliente)
     df.to_csv('ENDERECO_CLIENTE.csv', index=False)
 
 def transform_pedido(dados_brutos_pedidos):
@@ -73,7 +70,14 @@ def transform_produto_pedido(dados_brutos_pedidos):
             
             produtos_pedidos.append(produtos_pedidos_transformado)
     df = pd.DataFrame(produtos_pedidos)
-    df.to_csv('PRODUTOS_PEDIDOS.csv', index=True)
+    df.to_csv('PRODUTOS_PEDIDOS.csv', index=False)
+
+
+transform_produto(dados_brutos_produtos)
+transform_cliente(dados_brutos_clientes)
+transform_endereco(dados_brutos_clientes)
+transform_pedido(dados_brutos_pedidos)
+transform_produto_pedido(dados_brutos_pedidos)
 
 
 
