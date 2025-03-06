@@ -1,5 +1,5 @@
 #criando as tabelas
-from sqlalchemy import Column, String, Float, Integer, ForeignKey, DateTime
+from sqlalchemy import Column, String, Float, Integer, ForeignKey, DateTime, UniqueConstraint
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from db import Base
@@ -37,7 +37,7 @@ class Endereco(Base):
 
     cliente = relationship("Cliente", back_populates="enderecos")
 
-    __table_args__ = (db.UniqueConstraint('cliente_id', 'cidade', 'rua', 'numero', 'cep', name='unique_endereco_cliente'),) #impede que o mesmo cliente tenha endereços iguais cadastrados duas vezes
+    __table_args__ = (UniqueConstraint('cliente_id', 'cidade', 'rua', 'numero', 'cep', name='unique_endereco_cliente'),) #impede que o mesmo cliente tenha endereços iguais cadastrados duas vezes
 
 class Pedido(Base):
     __tablename__ = 'pedidos'
@@ -54,11 +54,12 @@ class ProdutoPedido(Base):
     pedido_id = Column(Integer, ForeignKey('pedidos.id'))
     produto_id = Column(Integer, ForeignKey('produtos.id'))
     quantidade = Column(Integer)
+    total = Column(Float)
 
     pedido = relationship("Pedido", back_populates="produtos")
     produto = relationship("Produto", back_populates="pedidos")
 
-    __table_args__ = (db.UniqueConstraint('pedido_id', 'produto_id', name='unique_produto_pedido'),) #impede que o mesmo pedido tenha o o mesmo produto inserido.
+    __table_args__ = (UniqueConstraint('pedido_id', 'produto_id', name='unique_produto_pedido'),) #impede que o mesmo pedido tenha o o mesmo produto inserido.
 
 
     

@@ -1,7 +1,6 @@
 #testar e conhecer os dados da api
 
-import requests
-response = requests.get('https://fakestoreapi.com/carts/1')
-dados = response.json()
-print(dados)
 
+from transform import produtos
+
+print(type(produtos[1]['preco']))

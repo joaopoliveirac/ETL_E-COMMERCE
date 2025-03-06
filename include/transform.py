@@ -15,6 +15,8 @@ def transform_produto(dados_brutos_produtos):
         produtos.append(produto_transformado)
     return produtos
 
+produtos = transform_produto(dados_brutos_produtos)
+
 def transform_cliente(dados_brutos_clientes):
     clientes = []
 
@@ -26,6 +28,8 @@ def transform_cliente(dados_brutos_clientes):
             
         clientes.append(cliente_transformado)
     return clientes
+
+clientes = transform_cliente(dados_brutos_clientes)
 
 def transform_endereco(dados_brutos_clientes):
     endereco_cliente = []
@@ -39,6 +43,8 @@ def transform_endereco(dados_brutos_clientes):
         
         endereco_cliente.append(endereco_transformado)
     return endereco_cliente
+
+endreco_cliente = transform_endereco(dados_brutos_clientes)
 
 def transform_pedido(dados_brutos_pedidos):
     pedidos = []
@@ -54,24 +60,24 @@ def transform_pedido(dados_brutos_pedidos):
         pedidos.append(pedido_transformado)
     return pedidos
 
-def transform_produto_pedido(dados_brutos_pedidos):
+pedidos = transform_pedido(dados_brutos_pedidos)
+
+def transform_produto_pedido(dados_brutos_pedidos,produtos):
     produtos_pedidos = []
 
     for pedido in dados_brutos_pedidos:
         for i, produto in enumerate(pedido['products']):
             produtos_pedidos_transformado = {'pedido_id': pedido['id'],
                                              'produto_id': produto['productId'],
-                                             'quantidade': produto['quantity']}
+                                             'quantidade': produto['quantity'],
+                                             'total': produtos[i]['preco'] * produto['quantity']}
             
             produtos_pedidos.append(produtos_pedidos_transformado)
     return produtos_pedidos
 
+produtos_pedidos = transform_produto_pedido(dados_brutos_pedidos,produtos)
 
-produtos = transform_produto(dados_brutos_produtos)
-clientes = transform_cliente(dados_brutos_clientes)
-endreco_cliente = transform_endereco(dados_brutos_clientes)
-pedidos = transform_pedido(dados_brutos_pedidos)
-produtos_pedidos = transform_produto_pedido(dados_brutos_pedidos)
+
 
 
 
