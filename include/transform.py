@@ -1,5 +1,5 @@
 import pandas as pd
-from extract import dados_brutos
+from extract import dados_brutos_produtos,dados_brutos_clientes,dados_brutos_pedidos
 
 def transform_produto(dados_brutos):
     produtos = []

@@ -11,5 +11,7 @@ def extrair(dados):
         print(f"erro na requisição: {response.status_code}")
         return None
 
-dados_brutos = extrair('products')
+dados_brutos_produtos = extrair('products')
+dados_brutos_pedidos = extrair('carts')
+dados_brutos_clientes = extrair('users')
 
