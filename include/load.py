@@ -1,4 +1,3 @@
-import pandas as pd
 from db import Base,engine,Sessionlocal
 from models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
 from transform import produtos, clientes, endreco_cliente, pedidos, produtos_pedidos
@@ -18,9 +17,6 @@ except Exception as erro:
     print(f'Erro ao inserir os dados: {erro}')
 finally:
     session.close()
-
-
-
 
 
 

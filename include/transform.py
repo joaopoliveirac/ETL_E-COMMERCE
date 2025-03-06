@@ -1,4 +1,3 @@
-import pandas as pd
 from datetime import datetime
 from extract import dados_brutos_produtos,dados_brutos_clientes, dados_brutos_pedidos
 
@@ -15,8 +14,6 @@ def transform_produto(dados_brutos_produtos):
     
         produtos.append(produto_transformado)
     return produtos
-    #df = pd.DataFrame(produtos)
-    #df.to_csv('PRODUTOS.csv', index=False)
 
 def transform_cliente(dados_brutos_clientes):
     clientes = []
@@ -29,8 +26,6 @@ def transform_cliente(dados_brutos_clientes):
             
         clientes.append(cliente_transformado)
     return clientes
-    #df = pd.DataFrame(clientes)
-    #df.to_csv('CLIENTES.csv', index=False)
 
 def transform_endereco(dados_brutos_clientes):
     endereco_cliente = []
@@ -44,8 +39,6 @@ def transform_endereco(dados_brutos_clientes):
         
         endereco_cliente.append(endereco_transformado)
     return endereco_cliente
-    #df = pd.DataFrame(endereco_cliente)
-    #df.to_csv('ENDERECO_CLIENTE.csv', index=False)
 
 def transform_pedido(dados_brutos_pedidos):
     pedidos = []
@@ -60,8 +53,6 @@ def transform_pedido(dados_brutos_pedidos):
         
         pedidos.append(pedido_transformado)
     return pedidos
-    #df = pd.DataFrame(pedidos)
-    #df.to_csv('PEDIDOS.csv', index=False)
 
 def transform_produto_pedido(dados_brutos_pedidos):
     produtos_pedidos = []
@@ -74,8 +65,6 @@ def transform_produto_pedido(dados_brutos_pedidos):
             
             produtos_pedidos.append(produtos_pedidos_transformado)
     return produtos_pedidos
-    #df = pd.DataFrame(produtos_pedidos)
-    #df.to_csv('PRODUTOS_PEDIDOS.csv', index=False)
 
 
 produtos = transform_produto(dados_brutos_produtos)
