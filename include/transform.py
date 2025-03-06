@@ -14,8 +14,9 @@ def transform_produto(dados_brutos_produtos):
                                 'imagem': produto['image']}
     
         produtos.append(produto_transformado)
-    df = pd.DataFrame(produtos)
-    df.to_csv('PRODUTOS.csv', index=False)
+    return produtos
+    #df = pd.DataFrame(produtos)
+    #df.to_csv('PRODUTOS.csv', index=False)
 
 def transform_cliente(dados_brutos_clientes):
     clientes = []
@@ -27,8 +28,9 @@ def transform_cliente(dados_brutos_clientes):
                                 'telefone': cliente['phone']}
             
         clientes.append(cliente_transformado)
-    df = pd.DataFrame(clientes)
-    df.to_csv('CLIENTES.csv', index=False)
+    return clientes
+    #df = pd.DataFrame(clientes)
+    #df.to_csv('CLIENTES.csv', index=False)
 
 def transform_endereco(dados_brutos_clientes):
     endereco_cliente = []
@@ -41,8 +43,9 @@ def transform_endereco(dados_brutos_clientes):
                                  'cep': cliente['address']['zipcode']}
         
         endereco_cliente.append(endereco_transformado)
-    df = pd.DataFrame(endereco_cliente)
-    df.to_csv('ENDERECO_CLIENTE.csv', index=False)
+    return endereco_cliente
+    #df = pd.DataFrame(endereco_cliente)
+    #df.to_csv('ENDERECO_CLIENTE.csv', index=False)
 
 def transform_pedido(dados_brutos_pedidos):
     pedidos = []
@@ -56,8 +59,9 @@ def transform_pedido(dados_brutos_pedidos):
                                'data': data_formatada}
         
         pedidos.append(pedido_transformado)
-    df = pd.DataFrame(pedidos)
-    df.to_csv('PEDIDOS.csv', index=False)
+    return pedidos
+    #df = pd.DataFrame(pedidos)
+    #df.to_csv('PEDIDOS.csv', index=False)
 
 def transform_produto_pedido(dados_brutos_pedidos):
     produtos_pedidos = []
@@ -69,15 +73,16 @@ def transform_produto_pedido(dados_brutos_pedidos):
                                              'quantidade': produto['quantity']}
             
             produtos_pedidos.append(produtos_pedidos_transformado)
-    df = pd.DataFrame(produtos_pedidos)
-    df.to_csv('PRODUTOS_PEDIDOS.csv', index=False)
+    return produtos_pedidos
+    #df = pd.DataFrame(produtos_pedidos)
+    #df.to_csv('PRODUTOS_PEDIDOS.csv', index=False)
 
 
-transform_produto(dados_brutos_produtos)
-transform_cliente(dados_brutos_clientes)
-transform_endereco(dados_brutos_clientes)
-transform_pedido(dados_brutos_pedidos)
-transform_produto_pedido(dados_brutos_pedidos)
+produtos = transform_produto(dados_brutos_produtos)
+clientes = transform_cliente(dados_brutos_clientes)
+endreco_cliente = transform_endereco(dados_brutos_clientes)
+pedidos = transform_pedido(dados_brutos_pedidos)
+produtos_pedidos = transform_produto_pedido(dados_brutos_pedidos)
 
 
 
