@@ -62,6 +62,21 @@ def transform_pedido(dados_brutos_pedidos):
     df = pd.DataFrame(pedidos)
     df.to_csv('PEDIDOS.csv', index=False)
 
+def transform_produto_pedido(dados_brutos_pedidos):
+    produtos_pedidos = []
+
+    for pedido in dados_brutos_pedidos:
+        for i, produto in enumerate(pedido['products']):
+            produtos_pedidos_transformado = {'pedido_id': pedido['id'],
+                                             'produto_id': produto['productId'],
+                                             'quantidade': produto['quantity']}
+            
+            produtos_pedidos.append(produtos_pedidos_transformado)
+    df = pd.DataFrame(produtos_pedidos)
+    df.to_csv('PRODUTOS_PEDIDOS.csv', index=True)
+
+
+
 
 
 
