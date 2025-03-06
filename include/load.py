@@ -11,6 +11,7 @@ try:
     def inserir(tabela, dados): #on_conflict_do_nothing() impede a inserção de dados que já existem com a mesma chave primária, como TODAS minhas tabelas tem chave primaria, me permite usar essa abordagem de validação
         insercao = insert(tabela).values(dados).on_conflict_do_nothing()
         session.execute(insercao)
+    
         
     inserir(Produto,produtos)
     inserir(Cliente,clientes)

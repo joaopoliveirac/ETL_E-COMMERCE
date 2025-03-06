@@ -37,6 +37,8 @@ class Endereco(Base):
 
     cliente = relationship("Cliente", back_populates="enderecos")
 
+    __table_args__ = (db.UniqueConstraint('cliente_id', 'cidade', 'rua', 'numero', 'cep', name='unique_endereco_cliente'),) #impede que o mesmo cliente tenha endereços iguais cadastrados duas vezes
+
 class Pedido(Base):
     __tablename__ = 'pedidos'
     id = Column(Integer, primary_key = True)
@@ -55,6 +57,8 @@ class ProdutoPedido(Base):
 
     pedido = relationship("Pedido", back_populates="produtos")
     produto = relationship("Produto", back_populates="pedidos")
+
+    __table_args__ = (db.UniqueConstraint('pedido_id', 'produto_id', name='unique_produto_pedido'),) #impede que o mesmo pedido tenha o o mesmo produto inserido.
 
 
     
