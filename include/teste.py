@@ -3,4 +3,3 @@
 
 from transform import produtos
 
-print(type(produtos[1]['preco']))
