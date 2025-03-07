@@ -1,37 +1,31 @@
 from sqlalchemy.dialects.postgresql import insert
-from db import Base,engine,Sessionlocal
+from db import Base, engine, Sessionlocal
 from models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
 from transform import produtos, clientes, endreco_cliente, pedidos, produtos_pedidos
 
-Base.metadata.create_all(bind=engine) #estava dando erro pq eu nao tava importando as classes que criei do models, ai nao tinha nenhuma tabela pra ser criada
-
-session = Sessionlocal()
-
-try:
-    def inserir(tabela, dados): #on_conflict_do_nothing() impede a inserção de dados que já existem com a mesma chave primária, como TODAS minhas tabelas tem chave primaria, me permite usar essa abordagem de validação
-        insercao = insert(tabela).values(dados).on_conflict_do_nothing()
-        session.execute(insercao)
+def inserir_dados():
+    # Criar tabelas no banco (se não existirem)
+    Base.metadata.create_all(bind=engine)  
     
+    session = Sessionlocal()
+
+    try:
+        def inserir(tabela, dados):
+            insercao = insert(tabela).values(dados).on_conflict_do_nothing()
+            session.execute(insercao)
         
-    inserir(Produto,produtos)
-    inserir(Cliente,clientes)
-    inserir(Endereco,endreco_cliente)
-    inserir(Pedido,pedidos)
-    inserir(ProdutoPedido,produtos_pedidos)
+        # Inserir os dados em cada tabela
+        inserir(Produto, produtos)
+        inserir(Cliente, clientes)
+        inserir(Endereco, endreco_cliente)
+        inserir(Pedido, pedidos)
+        inserir(ProdutoPedido, produtos_pedidos)
 
-    session.commit()
+        session.commit()
 
-except Exception as erro:
-    session.rollback()
-    print(f'Falhou, erro: {erro}')
-finally:
-    session.close()
-
-
-
-
-
-
-
-
-
+    except Exception as erro:
+        session.rollback()
+        print(f'Falhou, erro: {erro}')
+    
+    finally:
+        session.close()
