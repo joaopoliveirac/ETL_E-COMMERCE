@@ -1,7 +1,7 @@
 from sqlalchemy.dialects.postgresql import insert
-from .db import Base,engine,Sessionlocal
-from .models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
-from .transform import produtos, clientes, endreco_cliente, pedidos, produtos_pedidos
+from db import Base,engine,Sessionlocal
+from models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
+from transform import produtos, clientes, endreco_cliente, pedidos, produtos_pedidos
 
 Base.metadata.create_all(bind=engine) #estava dando erro pq eu nao tava importando as classes que criei do models, ai nao tinha nenhuma tabela pra ser criada
 
