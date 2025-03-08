@@ -1,9 +1,8 @@
 from sqlalchemy.dialects.postgresql import insert
-from db import Base, engine, Sessionlocal
-from models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
-from transform import produtos, clientes, endreco_cliente, pedidos, produtos_pedidos
+from include.db import Base, engine, Sessionlocal
+from include.models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
 
-def inserir_dados():
+def inserir_dados(produtos, clientes, enderecos, pedidos, produtos_pedidos):
     # Criar tabelas no banco (se não existirem)
     Base.metadata.create_all(bind=engine)  
     
@@ -11,13 +10,14 @@ def inserir_dados():
 
     try:
         def inserir(tabela, dados):
-            insercao = insert(tabela).values(dados).on_conflict_do_nothing()
-            session.execute(insercao)
+            if dados:  # Evita erro caso a lista esteja vazia
+                insercao = insert(tabela).values(dados).on_conflict_do_nothing()
+                session.execute(insercao)
         
-        # Inserir os dados em cada tabela
+        # Inserir os dados recebidos como argumentos
         inserir(Produto, produtos)
         inserir(Cliente, clientes)
-        inserir(Endereco, endreco_cliente)
+        inserir(Endereco, enderecos)
         inserir(Pedido, pedidos)
         inserir(ProdutoPedido, produtos_pedidos)
 

@@ -2,7 +2,7 @@
 from sqlalchemy import Column, String, Float, Integer, ForeignKey, DateTime, UniqueConstraint
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
-from db import Base
+from include.db import Base
 from datetime import datetime
 
 class Produto(Base):
