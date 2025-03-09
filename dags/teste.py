@@ -10,7 +10,7 @@ from include.models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
 from datetime import datetime
 from airflow.decorators import task, dag
 
-@dag(dag_id="etl_ecommerce_teste",
+@dag(dag_id="etl_ecommerce_teste_1",
      description="pipeline_para_extrair",
      start_date=datetime(2025,3,9),
      schedule="* * * * *",
@@ -63,7 +63,6 @@ def pipeline():
     t7 = task_transformar_pedidos(t3)
     t8 = task_transformar_produtos_pedidos(t3,t1)
     t9 = task_inserir(t4,t5,t6,t7,t8)
-    print(t1)
 
     t1 >> t2 >> t3 >> t4 >> t5 >> t6 >> t7 >> t8 >> t9
 
