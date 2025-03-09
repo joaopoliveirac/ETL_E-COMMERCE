@@ -1,10 +1,6 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-<<<<<<< HEAD
-from include.extract import dados_brutos_produtos,dados_brutos_clientes,dados_brutos_pedidos
-from include.transform import produtos,clientes,endreco_cliente,pedidos,produtos_pedidos
-=======
 
 from include.extract import dados_brutos_clientes,dados_brutos_produtos
 from include.transform import produtos
@@ -45,4 +41,4 @@ Base.metadata.create_all(engine)
 session = Sessionlocal()
 pipeline()
     
->>>>>>> 51d22f0 (consegui comunicar o postgre com o airflow. falta isso auqi: host.docker.internal)
+s
