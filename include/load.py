@@ -1,6 +1,12 @@
 from sqlalchemy.dialects.postgresql import insert
+<<<<<<< HEAD
 from include.db import Base, engine, Sessionlocal
 from include.models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
+=======
+from .db import Base, engine, Sessionlocal
+from .models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
+from .transform import produtos, clientes, endreco_cliente, pedidos, produtos_pedidos
+>>>>>>> 51d22f0 (consegui comunicar o postgre com o airflow. falta isso auqi: host.docker.internal)
 
 def inserir_dados(produtos, clientes, enderecos, pedidos, produtos_pedidos):
     # Criar tabelas no banco (se não existirem)
@@ -28,4 +34,10 @@ def inserir_dados(produtos, clientes, enderecos, pedidos, produtos_pedidos):
         print(f'Falhou, erro: {erro}')
     
     finally:
+<<<<<<< HEAD
         session.close()
+=======
+        session.close()
+
+inserir_dados()
+>>>>>>> 51d22f0 (consegui comunicar o postgre com o airflow. falta isso auqi: host.docker.internal)
