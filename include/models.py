@@ -2,11 +2,7 @@
 from sqlalchemy import Column, String, Float, Integer, ForeignKey, DateTime, UniqueConstraint
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
-<<<<<<< HEAD
-from include.db import Base
-=======
-from .db import Base
->>>>>>> 51d22f0 (consegui comunicar o postgre com o airflow. falta isso auqi: host.docker.internal)
+from db import Base
 from datetime import datetime
 
 class Produto(Base):

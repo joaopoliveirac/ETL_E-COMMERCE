@@ -20,11 +20,11 @@ def pipeline():
 
     @task(task_id='extrair_dados')
     def task_extrair_dados():
-        return dados_brutos_produtos
+        return produtos
     
     @task(task_id='transformar')
     def task_transformar():
-        return produtos
+        return transform_produto(dados_brutos_produtos)
     
     @task(task_id='inserir')
     def task_inserir():
@@ -40,5 +40,3 @@ engine
 Base.metadata.create_all(engine)
 session = Sessionlocal()
 pipeline()
-    
-s

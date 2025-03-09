@@ -1,9 +1,5 @@
 from datetime import datetime
-<<<<<<< HEAD
-from include.extract import dados_brutos_produtos,dados_brutos_clientes, dados_brutos_pedidos
-=======
-from .extract import dados_brutos_produtos,dados_brutos_clientes, dados_brutos_pedidos
->>>>>>> 51d22f0 (consegui comunicar o postgre com o airflow. falta isso auqi: host.docker.internal)
+from extract import dados_brutos_produtos,dados_brutos_clientes, dados_brutos_pedidos
 
 def transform_produto(dados_brutos_produtos):
     produtos = []
@@ -67,7 +63,7 @@ def transform_produto_pedido(dados_brutos_pedidos,produtos):
             produtos_pedidos_transformado = {'pedido_id': pedido['id'],
                                              'produto_id': produto['productId'],
                                              'quantidade': produto['quantity'],
-                                             'total': produtos[i]['preco'] * produto['quantity']}
+                                             'total': produtos[i]['price'] * produto['quantity']}
             
             produtos_pedidos.append(produtos_pedidos_transformado)
     return produtos_pedidos

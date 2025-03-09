@@ -1,14 +1,10 @@
 from sqlalchemy.dialects.postgresql import insert
-<<<<<<< HEAD
-from include.db import Base, engine, Sessionlocal
-from include.models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
-=======
-from .db import Base, engine, Sessionlocal
-from .models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
-from .transform import produtos, clientes, endreco_cliente, pedidos, produtos_pedidos
->>>>>>> 51d22f0 (consegui comunicar o postgre com o airflow. falta isso auqi: host.docker.internal)
+from db import Base, engine, Sessionlocal
+from models import Produto, Cliente, Endereco, Pedido, ProdutoPedido
+from transform import transform_produto,transform_cliente,transform_endereco,transform_pedido,transform_produto_pedido
+from extract import dados_brutos_produtos,dados_brutos_clientes, dados_brutos_pedidos
 
-def inserir_dados(produtos, clientes, enderecos, pedidos, produtos_pedidos):
+def inserir_dados(produtos,clientes,enderecos,pedido,produtos_pedidos):
     # Criar tabelas no banco (se não existirem)
     Base.metadata.create_all(bind=engine)  
     
@@ -34,10 +30,10 @@ def inserir_dados(produtos, clientes, enderecos, pedidos, produtos_pedidos):
         print(f'Falhou, erro: {erro}')
     
     finally:
-<<<<<<< HEAD
         session.close()
-=======
-        session.close()
-
-inserir_dados()
->>>>>>> 51d22f0 (consegui comunicar o postgre com o airflow. falta isso auqi: host.docker.internal)
+produtos = transform_produto(dados_brutos_produtos())
+clientes = transform_cliente(dados_brutos_clientes())
+endereco= transform_endereco(dados_brutos_clientes())
+pedidos = transform_pedido(dados_brutos_pedidos())
+produto_pedido = transform_produto_pedido(dados_brutos_pedidos(), dados_brutos_produtos())
+inserir_dados(produtos,clientes,endereco,pedidos,produto_pedido)
