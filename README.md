@@ -57,6 +57,32 @@ Após definir as tasks, criamos a DAG (Directed Acyclic Graph), que é a estrutu
 
 A orquestração com o Airflow permite que o processo seja escalável e fácil de monitorar, oferecendo visibilidade e controle sobre a execução do pipeline. O Airflow também oferece recursos para lidar com falhas e reiniciar as tarefas automaticamente, caso necessário. [dag airflow](./dags/etl_pipeline.py)
 
+## Como Executar o Projeto
+
+Antes de executar o projeto, você precisa ter o Docker Compose instalado[Como instalar Docker Compose](https://docs.docker.com/compose/install/) e o Astronomer CLI(airflow)[Como instalar o Astronomer CLI](https://www.astronomer.io/docs/astro/cli/install-cli).
+
+### 1- Clonar o repositório
+Clone o repositório para sua máquina local:
+
+bash
+git clone https://github.com/joaopoliveirac/ETL_E-COMMERCE.git
+
+
+### 2- Acessar o repositório do projeto
+Após clonar o repositório, entre no diretório do projeto:
+
+bash
+cd ETL_E-COMMERCE
+
+
+### 3- Iniciar o Astronomer CLI
+Estando na pasta do projeto, rodar o seguinte comando para iniciar:
+
+bash
+astro dev start
+
+Isso irá subir os containers do projeto no seu Docker e permitir o acesso ao [Airflow](localhost:8080) para acompanhar a execução da pipeline.
+
 ## Tecnologias Utilizadas
 - Python → Exração, transformação e carregamento dos dados da Fake Store.
 
@@ -67,5 +93,42 @@ A orquestração com o Airflow permite que o processo seja escalável e fácil d
 - Apache Airflow → Orquestração e automação da pipeline
 
 - Docker → Contêinerização dos serviços
+
+## Como Executar o Projeto
+
+Antes de executar o projeto, você precisa ter o Docker Compose instalado[Como instalar Docker Compose](https://docs.docker.com/compose/install/) e o Astronomer CLI(airflow)[Como instalar o Astronomer CLI](https://www.astronomer.io/docs/astro/cli/install-cli).
+
+### 1- Clonar o repositório
+Clone o repositório para sua máquina local:
+
+bash
+git clone https://github.com/joaopoliveirac/ETL_E-COMMERCE.git
+
+
+### 2- Acessar o repositório do projeto
+Após clonar o repositório, entre no diretório do projeto:
+
+bash
+cd ETL_E-COMMERCE
+
+### 3- Iniciar o banco Postgre
+
+Agora, use o Docker Compose para construir e rodar o container do postgre.
+
+```bash
+docker-compose up -d --build
+```
+
+Isso irá iniciar o Postgre no Docker.
+
+### 4- Iniciar o Astronomer CLI
+Estando na pasta do projeto, rodar o seguinte comando para iniciar:
+
+bash
+astro dev start
+
+Isso irá subir o container do projeto no seu Docker e permitir o acesso ao [Airflow](localhost:8080) para acompanhar a execução da pipeline.
+
+
 
 
