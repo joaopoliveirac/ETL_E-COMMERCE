@@ -13,7 +13,7 @@ from airflow.decorators import task, dag
 @dag(dag_id="etl_ecommerce_teste_1",
      description="pipeline_para_extrair",
      start_date=datetime(2025,3,9),
-     schedule="* * * * *",
+     schedule="@daily",
      catchup=False)
 
 def pipeline():
