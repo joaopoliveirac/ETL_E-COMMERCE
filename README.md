@@ -26,20 +26,20 @@ Instalação do astromer airflow [Astronomer install](https://www.astronomer.io/
 
 ### 2 - Exploração da API da Fake Store
 
-Através da documentação da API [Documentação](https://fakestoreapi.com/docs) e da biblioteca request, conheci quais dados ela me fornecia e com quais eu queria trabalhar.
+Através da documentação da API([Documentação](https://fakestoreapi.com/docs)) e da biblioteca request, conheci quais dados ela me fornecia e com quais eu queria trabalhar.
 
 ### 3 - Criação dos scripts de ETL e modelagem do banco de dados
 
 1- Extração -> Na primeira etapa do pipeline, realizamos a extração dos dados da Fake Store API utilizando a biblioteca requests. O objetivo foi buscar as informações necessárias sobre produtos, usuários e pedidos. A extração é feita via requisições HTTP GET, onde o retorno é um JSON contendo os dados. A partir disso, filtramos e extraímos as informações relevantes para as etapas seguintes.[código completo da extração](./include/extract.py)
 
-2- Transformação -> Com os dados extraídos, foi necessário realizar uma série de transformações para preparar os dados para o carregamento no banco de dados. As transformações envolveram a seleção de campos relevantes. Após as transformações, os dados foram armazenados em uma lista de dicionários, uma estrutura de dados que facilita a manipulação e o mapeamento dos dados para o formato esperado pelas tabelas do banco de dados.[código completo da transformação](./include/transform.py)
+2- Transformação -> Com os dados extraídos, foi necessário realizar uma série de transformações para preparar os dados para o carregamento no banco de dados. As transformações envolveram a seleção de campos relevantes. Após as transformações, os dados foram armazenados em uma lista de dicionários, uma estrutura de dados que facilita a manipulação e o mapeamento dos dados para o formato esperado pelas tabelas do banco de dados.[Código completo da transformação](./include/transform.py)
 
-3- Conexao com o PostgreSQL -> Após transformar os dados, a próxima etapa foi a criação da conexão com o PostgreSQL. Para facilitar a interação com o banco de dados, utilizamos a biblioteca SQLAlchemy, que fornece uma interface de ORM (Object-Relational Mapping) para trabalhar com bancos de dados relacionais de forma eficiente. O código de conexão permite estabelecer a comunicação entre o código Python e o banco de dados PostgreSQL, tornando possível a inserção dos dados transformados.[código de conexão com o banco](./include/db.py)
+3- Conexao com o PostgreSQL -> Após transformar os dados, a próxima etapa foi a criação da conexão com o PostgreSQL. Para facilitar a interação com o banco de dados, utilizamos a biblioteca SQLAlchemy, que fornece uma interface de ORM (Object-Relational Mapping) para trabalhar com bancos de dados relacionais de forma eficiente. O código de conexão permite estabelecer a comunicação entre o código Python e o banco de dados PostgreSQL, tornando possível a inserção dos dados transformados.[Código de conexão com o banco](./include/db.py)
 
 4- Modelagem do banco de dados -> Com a conexão estabelecida, a modelagem do banco de dados foi a próxima etapa. Utilizamos o SQLAlchemy ORM para definir as tabelas e seus relacionamentos. Cada classe no código representa uma tabela no banco de dados, e cada atributo da classe representa uma coluna da tabela, com seu tipo de dado (por exemplo, String, Integer, Float ou ForeignKey). Para modelar o relacionamento entre as tabelas, usamos o relationship, o que permite associar as tabelas de forma bidirecional, facilitando consultas complexas entre elas.
-[código completo da modelagem](./include/models.py)
+[Código completo da modelagem](./include/models.py)
 
-5 - Carregamento -> Após concluir a extração, transformação e modelagem, chegou a etapa de carregar os dados no banco de dados. Para isso, utilizamos o SQLAlchemy para inserir os dados nas tabelas do PostgreSQL. O processo envolve a inserção de dados linha por linha nas tabelas, utilizando sessões de transação do SQLAlchemy, garantindo a integridade dos dados e evitando problemas como duplicação ou falhas durante o processo de carga.[código de carregamento](./include/load.py)
+5 - Carregamento -> Após concluir a extração, transformação e modelagem, chegou a etapa de carregar os dados no banco de dados. Para isso, utilizamos o SQLAlchemy para inserir os dados nas tabelas do PostgreSQL. O processo envolve a inserção de dados linha por linha nas tabelas, utilizando sessões de transação do SQLAlchemy, garantindo a integridade dos dados e evitando problemas como duplicação ou falhas durante o processo de carga.[Código de carregamento](./include/load.py)
 
 ### 4 - Criação das tasks e da dag no Airflow
 
@@ -59,7 +59,7 @@ A orquestração com o Airflow permite que o processo seja escalável e fácil d
 
 ## Como Executar o Projeto
 
-Antes de executar o projeto, você precisa ter o Docker Compose instalado[Como instalar Docker Compose](https://docs.docker.com/compose/install/) e o Astronomer CLI(airflow)[Como instalar o Astronomer CLI](https://www.astronomer.io/docs/astro/cli/install-cli).
+Antes de executar o projeto, você precisa ter o Docker Compose instalado([Como instalar Docker Compose](https://docs.docker.com/compose/install/)) e o Astronomer CLI(airflow)([Como instalar o Astronomer CLI](https://www.astronomer.io/docs/astro/cli/install-cli)).
 
 ### 1- Clonar o repositório
 Clone o repositório para sua máquina local:
