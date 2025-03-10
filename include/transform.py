@@ -2,6 +2,10 @@ from datetime import datetime
 from .extract import dados_brutos_produtos,dados_brutos_clientes, dados_brutos_pedidos
 
 def transform_produto(dados_brutos_produtos):
+    """Função que recebe os dados extraidos do arquvio extract.py e transforma esses dados em uma lista de dicionario.
+    primeiro cria uma lista vazia, depois faz um for na variavel dados_brutos_produtos e percorre cada dicionario dos dados extraidos, onde criamos
+    a variavel produto_transformado, que é um dicionario com os campos id, titulo, preco, descricao, categoria e imagem, onde o valor desses campos
+    é o dicionario['com a chave que escolhemos']"""
     produtos = []
 
     for produto in dados_brutos_produtos:
@@ -16,6 +20,7 @@ def transform_produto(dados_brutos_produtos):
     return produtos
 
 def transform_cliente(dados_brutos_clientes):
+    """Mesma lógica da função transform_produtos, só vai alterar os campos."""
     clientes = []
 
     for cliente in dados_brutos_clientes:
@@ -28,6 +33,7 @@ def transform_cliente(dados_brutos_clientes):
     return clientes
 
 def transform_endereco(dados_brutos_clientes):
+    """Mesma lógica da função transform_produtos, só vai alterar os campos."""
     endereco_cliente = []
 
     for cliente in dados_brutos_clientes:
@@ -42,6 +48,7 @@ def transform_endereco(dados_brutos_clientes):
 
 
 def transform_pedido(dados_brutos_pedidos):
+    """Mesma lógica da função transform_produtos, só vai alterar os campos."""
     pedidos = []
 
     for pedido in dados_brutos_pedidos:
@@ -56,6 +63,9 @@ def transform_pedido(dados_brutos_pedidos):
     return pedidos
 
 def transform_produto_pedido(dados_brutos_pedidos,produtos):
+    """Mesma lógica da função transform_produtos, só vai alterar os campos.
+    Nesse tambe fazemos um calculo, que é o preco * quantidade, para ter o quanto gastou daquele produto no pedido, para que caso
+    queria fazer um select somando o total do pedido, fique mais facil"""
     produtos_pedidos = []
 
     for pedido in dados_brutos_pedidos:

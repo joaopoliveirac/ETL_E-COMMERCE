@@ -6,6 +6,10 @@ from .db import Base
 from datetime import datetime
 
 class Produto(Base):
+    """Representa a tabela produtos no banco de dados.
+    Atributos:
+        Representam as colunas no banco.
+        pedidos (relationship): Relacionamento com a tabela ProdutoPedido."""
     __tablename__ = 'produtos'
     id = Column(Integer, primary_key = True)
     titulo = Column(String)
@@ -17,6 +21,11 @@ class Produto(Base):
     pedidos = relationship("ProdutoPedido", back_populates="produto")
 
 class Cliente(Base):
+    """Representa a tabela clientes no banco de dados.
+    Atributos:
+        Representam as colunas no banco.
+        pedidos (relationship): Relacionamento com a tabela Pedido."""
+    
     __tablename__ = 'clientes'
     id = Column(Integer, primary_key = True)
     nome = Column(String)
@@ -27,6 +36,11 @@ class Cliente(Base):
     pedidos = relationship("Pedido", back_populates="cliente")
 
 class Endereco(Base):
+    """Representa a tabela endereco_clientes no banco de dados.
+    Atributos:
+        Representam as colunas no banco.
+    Restrições:
+        - Garante que um cliente não tenha endereços duplicados no banco de dados."""
     __tablename__ = 'endereco_clientes'
     id = Column(Integer, primary_key = True)
     cliente_id = Column(Integer, ForeignKey('clientes.id') )
@@ -40,6 +54,10 @@ class Endereco(Base):
     __table_args__ = (UniqueConstraint('cliente_id', 'cidade', 'rua', 'numero', 'cep', name='unique_endereco_cliente'),) #impede que o mesmo cliente tenha endereços iguais cadastrados duas vezes
 
 class Pedido(Base):
+    """Representa a tabela pedidos no banco de dados.
+    Atributos:
+        Representam as colunas no banco.
+        produtos (relationship): Relacionamento com a tabela ProdutoPedido."""
     __tablename__ = 'pedidos'
     id = Column(Integer, primary_key = True)
     cliente_id = Column(Integer, ForeignKey('clientes.id')) #chave estrangeira, verificar como colocar
@@ -49,6 +67,12 @@ class Pedido(Base):
     produtos = relationship("ProdutoPedido", back_populates="pedido")
 
 class ProdutoPedido(Base):
+    """
+    Representa a tabela produtos_pedidos no banco de dados.
+    Atributos:
+        Representam as colunas no banco.
+    Restrições:
+        - Garante que um mesmo pedido não tenha o mesmo produto inserido mais de uma vez."""
     __tablename__ = 'produtos_pedidos'
     id = Column(Integer, primary_key = True)
     pedido_id = Column(Integer, ForeignKey('pedidos.id'))
