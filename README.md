@@ -2,11 +2,6 @@
 
 Projeto de pipeline de ETL que extrai dados da API de um e-commerce (Fake Store), realiza a transformação e os armazena em um Data Warehouse local (PostgreSQL), com orquestração via Apache Airflow.
 
-## Conteúdos
-
-
-
-
 ## Introdução
 
 Este projeto consiste na criação de uma pipeline de ETL (Extração, Transformação e Carga) para processar dados da Fake Store API, um e-commerce fictício. A pipeline extrai informações de produtos, usuários e pedidos, transforma os dados conforme necessário e os armazena em um Data Warehouse PostgreSQL.
@@ -73,6 +68,29 @@ A orquestração com o Airflow permite que o processo seja escalável e fácil d
 
 - Docker → Contêinerização dos serviços
 
+## Como Executar o Projeto
 
+Antes de executar o projeto, você precisa ter o Docker Compose instalado[Como instalar Docker Compose](https://docs.docker.com/compose/install/) e o Astronomer CLI(airflow)[Como instalar o Astronomer CLI](https://www.astronomer.io/docs/astro/cli/install-cli).
 
+### 1- Clonar o repositório
+Clone o repositório para sua máquina local:
+
+```bash
+git clone https://github.com/joaopoliveirac/ETL_E-COMMERCE.git
+```
+
+### 2- Acessar o repositório do projeto
+Após clonar o repositório, entre no diretório do projeto:
+
+```bash
+cd ETL_E-COMMERCE
+```
+
+### 3- Iniciar o Astronomer CLI
+Estando na pasta do projeto, rodar o seguinte comando para iniciar:
+
+```bash
+astro dev start
+```
+Isso irá subir os containers do projeto no seu Docker e permitir o acesso ao [Airflow](localhost:8080) para acompanhar a execução da pipeline.
 
