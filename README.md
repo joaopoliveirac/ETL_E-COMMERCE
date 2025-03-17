@@ -46,7 +46,7 @@ Instalação do astromer airflow [Astronomer install](https://www.astronomer.io/
 
 ### 2 - Exploração da API da Fake Store
 
-Através da documentação da API([Documentação](https://fakestoreapi.com/docs)) e da biblioteca request, conheci quais dados ela me fornecia e com quais eu queria trabalhar.
+Através da documentação da API([Documentação](https://fakestoreapi.com/docs)) e da biblioteca request, conheci quais dados ela me fornecia e com quais seriam utéis.
 
 ### 3 - Criação dos scripts de ETL e modelagem do banco de dados
 
@@ -102,17 +102,6 @@ bash
 astro dev start
 
 Isso irá subir os containers do projeto no seu Docker e permitir o acesso ao [Airflow](localhost:8080) para acompanhar a execução da pipeline.
-
-## Tecnologias Utilizadas
-- Python → Exração, transformação e carregamento dos dados da Fake Store.
-
-- SQLAlchemy → Manipulação do banco de dados
-
-- PostgreSQL → Data Warehouse para armazenar os dados
-
-- Apache Airflow → Orquestração e automação da pipeline
-
-- Docker → Contêinerização dos serviços
 
 ## Como Executar o Projeto
 
