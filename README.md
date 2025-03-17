@@ -21,6 +21,23 @@ Este projeto foi desenvolvido para atender à crescente demanda por soluções a
 
 A partir da implementação de uma pipeline de ETL automatizada, orquestrada pelo Apache Airflow, o projeto busca melhorar a eficiência operacional, reduzir custos e aumentar a agilidade na análise de dados, fundamentais para empresas no mercado de e-commerce que buscam um processo decisional ágil e preciso.
 
+## Ferramentas escolhidas
+
+1- Python: Utilizado por sua flexibilidade, vasto ecossistema de bibliotecas e facilidade em manipulação de dados. É ideal para a construção de pipelines ETL e integração com APIs, além de ser amplamente adotado na engenharia de dados.
+
+2- SQLAlchemy: Biblioteca que facilita a interação entre Python e bancos de dados relacionais. Foi escolhida para abstrair a complexidade da comunicação com o PostgreSQL e para realizar a transformação dos dados de forma eficiente antes de inseri-los no banco.
+
+3- requests: Biblioteca utilizada para fazer requisições HTTP à Fake Store API e extrair os dados necessários. Foi escolhida por sua simplicidade e eficiência no manejo de APIs RESTful, permitindo facilmente acessar e consumir os dados da API para transformá-los e armazená-los no banco de dados.
+
+4- PostgreSQL: Sistema de gerenciamento de banco de dados relacional robusto e confiável, adequado para armazenar grandes volumes de dados de forma estruturada. Sua escolha se deve à sua capacidade de lidar com dados transacionais e pela compatibilidade com SQLAlchemy.
+
+5- Apache Airflow: Framework de orquestração de workflows escolhido por sua capacidade de agendar, monitorar e gerenciar a execução das etapas do ETL. O Airflow oferece flexibilidade para criar pipelines complexas e escaláveis, com monitoramento fácil e integração com outras ferramentas.
+
+6- Docker: Usado para criar containers isolados, garantindo que todas as ferramentas, incluindo o PostgreSQL e o Airflow, possam ser executadas de maneira consistente em diferentes ambientes. Facilita a replicação do ambiente de desenvolvimento e produção.
+
+7- Astronomer: Plataforma para gerenciar e orquestrar pipelines com Apache Airflow. Sua escolha se deu pela facilidade em implementar e monitorar DAGs, além da compatibilidade com o Docker, o que facilita a integração com o projeto.
+
+
 ## Etapas do projeto
 
 ### 1 - Configuração do ambiente
