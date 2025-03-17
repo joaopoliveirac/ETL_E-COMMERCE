@@ -1,6 +1,7 @@
 # Projeto de ETL para E-commerce: Extração de Dados da Fake Store API
 
 Projeto de pipeline de ETL que extrai dados da API de um e-commerce (Fake Store), realiza a transformação e os armazena em um Data Warehouse local (PostgreSQL), com orquestração via Apache Airflow.
+![Arquitetura](pics/arquitetura.png)
 
 ## Introdução
 
