@@ -64,7 +64,7 @@ Através da documentação da API([Documentação](https://fakestoreapi.com/docs
 
 ### 4 - Criação das tasks e da dag no Airflow
 
-Com todas as etapas do pipeline de ETL funcionando corretamente, era necessário orquestrar o processo de forma automática e escalável. Para isso, utilizamos o Apache Airflow com Astronomer, uma plataforma que facilita o gerenciamento e execução de workflows.
+Com todas as etapas do pipeline de ETL funcionando corretamente, era necessário orquestrar o processo de forma automática e escalável. Para isso, utilizamos o Apache Airflow com Astronomer.
 
 #### 1 - Criação das Tasks
 Primeiramente, criamos as tasks para cada etapa do pipeline de ETL:
@@ -80,7 +80,7 @@ A orquestração com o Airflow permite que o processo seja escalável e fácil d
 
 ## Como Executar o Projeto
 
-Antes de executar o projeto, você precisa ter o Docker Compose instalado[Como instalar Docker Compose](https://docs.docker.com/compose/install/) e o Astronomer CLI(airflow)[Como instalar o Astronomer CLI](https://www.astronomer.io/docs/astro/cli/install-cli).
+Antes de executar o projeto, você precisa ter o Docker Compose instalado [Como instalar Docker Compose](https://docs.docker.com/compose/install/) e o Astronomer CLI(airflow) [Como instalar o Astronomer CLI](https://www.astronomer.io/docs/astro/cli/install-cli).
 
 ### 1- Clonar o repositório
 Clone o repositório para sua máquina local:
