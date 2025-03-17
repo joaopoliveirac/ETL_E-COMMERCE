@@ -16,17 +16,10 @@ Os principais segmentos incluem moda, eletrônicos e alimentos, enquanto os mark
 
 Apesar do crescimento, o setor enfrenta desafios em áreas como logística, fraudes e regulamentações, exigindo inovação e adaptação constante das empresas. Em um cenário competitivo, os players que investem em tecnologia e personalização se destacam e conquistam a preferência do consumidor.
 
-## Objetivo
-Este projeto consiste na criação de uma pipeline de ETL (Extração, Transformação e Carga) para processar dados da Fake Store API, um e-commerce fictício. A pipeline extrai informações de produtos, usuários e pedidos, transforma os dados conforme necessário e os armazena em um Data Warehouse PostgreSQL.
-A orquestração do processo é realizada com o Airflow, garantindo a automação. A pipeline roda diariamente, verificando se há novos registros; caso existam, eles são inseridos na base de dados.
+## Por que desenvolvi esse projeto?
+Este projeto foi desenvolvido para atender à crescente demanda por soluções automatizadas e escaláveis no e-commerce, com foco na otimização da análise de dados. Ao integrar a Fake Store API com um Data Warehouse em PostgreSQL, o objetivo é garantir a atualização contínua e a integridade dos dados de pedidos, produtos e usuários. A solução permite a carga e transformação eficientes de dados, proporcionando informações valiosas para tomada de decisões estratégicas, como o monitoramento de desempenho e comportamento do consumidor.
 
-O projeto foi desenvolvido para aprimorar habilidades em dados, abordando conceitos essenciais como:
-
-- Extração de dados de APIs REST
-- Transformação e modelagem de dados
-- Armazenamento em banco de dados relacional (PostgreSQL)
-- Orquestração de processos com Apache Airflow
-- Automação de pipeline de dados
+A partir da implementação de uma pipeline de ETL automatizada, orquestrada pelo Apache Airflow, o projeto busca melhorar a eficiência operacional, reduzir custos e aumentar a agilidade na análise de dados, fundamentais para empresas no mercado de e-commerce que buscam um processo decisional ágil e preciso.
 
 ## Etapas do projeto
 
