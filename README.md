@@ -4,11 +4,21 @@ Projeto de pipeline de ETL que extrai dados da API de um e-commerce (Fake Store)
 
 ## Introdução
 
-Este projeto consiste na criação de uma pipeline de ETL (Extração, Transformação e Carga) para processar dados da Fake Store API, um e-commerce fictício. A pipeline extrai informações de produtos, usuários e pedidos, transforma os dados conforme necessário e os armazena em um Data Warehouse PostgreSQL.
+### Oque é um E-commerce?
+Um e-commerce (ou comércio eletrônico) é uma forma de comércio que acontece de maneira digital, ou seja, a compra e venda de produtos e serviços são realizadas através da internet. Isso pode envolver desde lojas virtuais e marketplaces até transações diretas entre empresas (B2B) ou entre empresas e consumidores (B2C).
 
-A orquestração do processo é realizada com o Airflow, garantindo a automação. A pipeline roda diariamente, verificando se há novos registros; caso existam, eles são inseridos na base de dados.
+![E-commerce](pics/ecommerce.avif)
+
+### Panorama do E-commerce no Brasil
+O e-commerce brasileiro segue uma trajetória de crescimento contínuo, com um faturamento aproximado de R$ 200 bilhões em 2024, consolidando o Brasil como o maior mercado de e-commerce da América Latina. A digitalização acelerada dos consumidores e a expansão do mobile commerce impulsionam o setor, que já representa cerca de 13% a 15% das vendas do varejo nacional.
+
+Os principais segmentos incluem moda, eletrônicos e alimentos, enquanto os marketplaces dominam o cenário, com empresas como Mercado Livre, Shopee e Amazon se destacando. Além disso, tendências como pagamentos digitais, inteligência artificial, e omnichannel ganham força, moldando a experiência do consumidor.
+
+Apesar do crescimento, o setor enfrenta desafios em áreas como logística, fraudes e regulamentações, exigindo inovação e adaptação constante das empresas. Em um cenário competitivo, os players que investem em tecnologia e personalização se destacam e conquistam a preferência do consumidor.
 
 ## Objetivo
+Este projeto consiste na criação de uma pipeline de ETL (Extração, Transformação e Carga) para processar dados da Fake Store API, um e-commerce fictício. A pipeline extrai informações de produtos, usuários e pedidos, transforma os dados conforme necessário e os armazena em um Data Warehouse PostgreSQL.
+A orquestração do processo é realizada com o Airflow, garantindo a automação. A pipeline roda diariamente, verificando se há novos registros; caso existam, eles são inseridos na base de dados.
 
 O projeto foi desenvolvido para aprimorar habilidades em dados, abordando conceitos essenciais como:
 
