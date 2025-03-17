@@ -78,6 +78,15 @@ Após definir as tasks, criamos a DAG (Directed Acyclic Graph), que é a estrutu
 
 A orquestração com o Airflow permite que o processo seja escalável e fácil de monitorar, oferecendo visibilidade e controle sobre a execução do pipeline. O Airflow também oferece recursos para lidar com falhas e reiniciar as tarefas automaticamente, caso necessário. [dag airflow](./dags/etl_pipeline.py)
 
+## Conclusão
+Este projeto resultou em uma pipeline de ETL robusta e automatizada, capaz de extrair, transformar e carregar dados da Fake Store API para um Data Warehouse em PostgreSQL, orquestrada pelo Apache Airflow. A solução garante a atualização contínua e a integridade dos dados de pedidos, produtos e usuários, com a inserção apenas dos novos registros.
+
+Além da parte técnica, o projeto oferece uma base sólida para empresas de e-commerce que buscam otimizar a análise de dados e tomar decisões mais estratégicas. A automação do processo de ETL e a centralização das informações em um Data Warehouse proporcionam uma visão mais precisa e em tempo real do desempenho de vendas, comportamento dos consumidores e tendências de mercado. Isso pode ser crucial para realizar campanhas de marketing mais assertivas, entender o ciclo de vida dos produtos e identificar oportunidades de melhoria na experiência do cliente.
+
+Com a utilização de Python, SQL, Docker e Airflow, o projeto proporcionou um entendimento aprofundado de integração de ferramentas de dados, orquestração de workflows e automação de processos, enquanto atende diretamente à necessidade do negócio de uma solução escalável e eficiente para análise de dados. A arquitetura desenvolvida permite a escalabilidade e o monitoramento eficiente das tarefas, tornando a solução robusta e ideal para o crescimento da operação.
+
+Este projeto não só demonstrou a viabilidade de uma solução de pipeline de dados para e-commerce, mas também abriu caminho para futuras melhorias, como a implementação de novos fluxos de dados e a otimização de consultas para garantir maior performance e escalabilidade, trazendo ainda mais valor estratégico para o negócio.
+
 ## Como Executar o Projeto
 
 Antes de executar o projeto, você precisa ter o Docker Compose instalado [Como instalar Docker Compose](https://docs.docker.com/compose/install/) e o Astronomer CLI(airflow) [Como instalar o Astronomer CLI](https://www.astronomer.io/docs/astro/cli/install-cli).
