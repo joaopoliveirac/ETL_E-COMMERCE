@@ -16,7 +16,7 @@ Os principais segmentos incluem moda, eletrônicos e alimentos, enquanto os mark
 
 Apesar do crescimento, o setor enfrenta desafios em áreas como logística, fraudes e regulamentações, exigindo inovação e adaptação constante das empresas. Em um cenário competitivo, os players que investem em tecnologia e personalização se destacam e conquistam a preferência do consumidor.
 
-## Por que desenvolvi esse projeto?
+## Por que esse projeto foi desenvolvido?
 Este projeto foi desenvolvido para atender à crescente demanda por soluções automatizadas e escaláveis no e-commerce, com foco na otimização da análise de dados. Ao integrar a Fake Store API com um Data Warehouse em PostgreSQL, o objetivo é garantir a atualização contínua e a integridade dos dados de pedidos, produtos e usuários. A solução permite a carga e transformação eficientes de dados, proporcionando informações valiosas para tomada de decisões estratégicas, como o monitoramento de desempenho e comportamento do consumidor.
 
 A partir da implementação de uma pipeline de ETL automatizada, orquestrada pelo Apache Airflow, o projeto busca melhorar a eficiência operacional, reduzir custos e aumentar a agilidade na análise de dados, fundamentais para empresas no mercado de e-commerce que buscam um processo decisional ágil e preciso.
